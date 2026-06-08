@@ -1147,10 +1147,10 @@ body > *:not(#admin-panel):not(.admin-pw-overlay):not(.modal-overlay):not(.toast
   <img class="community-bg" id="community-img" src="" alt="JR Community">
   <div class="community-content">
     <div class="community-text">
-      <h2>JR <span>COMMUNITY</span></h2>
+      <h2>JR <span>STORE</span></h2>
       <p>Faça parte da maior comunidade de otimização para PC. Dicas exclusivas, suporte e muito mais.</p>
     </div>
-    <a href="https://discord.gg/MdB9qN4u3s" id="community-discord" class="btn-primary" target="_blank">ENTRAR NA COMUNIDADE</a>
+    <a href="https://discord.gg/MdB9qN4u3s" id="community-discord" class="btn-primary" target="_blank">ENTRAR NA JR STORE </a>
   </div>
 </section>
 
@@ -1240,10 +1240,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // slogan
   if (s.slogan) document.getElementById('hero-slogan').textContent = s.slogan;
   // discord
-  const wa = s.discord ? 'https://discord.gg/MdB9qN4u3s' + s.whatsapp : 'https://discord.gg/MdB9qN4u3s';
-  document.getElementById('nav-whatsapp').href = wa;
-  document.getElementById('hero-whatsapp').href = wa;
-  document.getElementById('community-whatsapp').href = wa;
+  const wa = 'https://discord.gg/MdB9qN4u3s';
+  document.getElementById('nav-discord').href = wa;
+document.getElementById('hero-discord').href = wa;
+document.getElementById('community-discord').href = wa;
   // render
   renderProducts();
 });
