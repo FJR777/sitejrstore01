@@ -977,8 +977,8 @@ body > *:not(#admin-panel):not(.admin-pw-overlay):not(.modal-overlay):not(.toast
           <input type="number" id="prod-old-price" placeholder="70.00" step="0.01">
         </div>
         <div class="form-group">
-          <label>Link de compra / WhatsApp</label>
-          <input type="text" id="prod-link" placeholder="https://wa.me/55...">
+          <label>Link de compra / Discord</label>
+          <input type="text" id="prod-link" placeholder="https://discord.gg/MdB9qN4u3s">
         </div>
         <div class="form-group">
           <label>Badge (ex: NOVO, PROMO)</label>
@@ -1046,7 +1046,7 @@ body > *:not(#admin-panel):not(.admin-pw-overlay):not(.modal-overlay):not(.toast
   <ul class="nav-links">
     <li><a href="#produtos">Produtos</a></li>
     <li><a href="#produtos">Produtos</a></li><li><a href="#cadastro">Cadastro</a></li><li><a href="#comunidade">Comunidade</a></li>
-    <li><a href="https://wa.me/55" id="nav-whatsapp" target="_blank">WhatsApp</a></li>
+    <li><a href="https://discord.gg/MdB9qN4u3s" id="nav-discord" target="_blank">Discord</a></li>
   </ul>
   <div class="nav-right">
     <button class="btn-admin-trigger" onclick="openAdminPrompt()">⚙ Admin</button>
@@ -1063,7 +1063,7 @@ body > *:not(#admin-panel):not(.admin-pw-overlay):not(.modal-overlay):not(.toast
     <p class="hero-sub" id="hero-slogan">Otimização para PC</p>
     <div class="hero-cta">
       <a href="#produtos" class="btn-primary">VER PRODUTOS</a>
-      <a href="https://wa.me/55" id="hero-whatsapp" class="btn-outline" target="_blank">FALAR NO WHATSAPP</a>
+      <a href="https://discord.gg/MdB9qN4u3s" id="hero-discord" class="btn-outline" target="_blank">FALAR NO DISCORD</a>
     </div>
   </div>
 </section>
@@ -1239,8 +1239,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('community-img').src = 'data:image/jpeg;base64,' + DEFAULT_IMG3;
   // slogan
   if (s.slogan) document.getElementById('hero-slogan').textContent = s.slogan;
-  // whatsapp
-  const wa = s.whatsapp ? 'https://wa.me/' + s.whatsapp : 'https://wa.me/55';
+  // discord
+  const wa = s.discord ? 'https://discord.gg/MdB9qN4u3s' + s.whatsapp : 'https://discord.gg/MdB9qN4u3s';
   document.getElementById('nav-whatsapp').href = wa;
   document.getElementById('hero-whatsapp').href = wa;
   document.getElementById('community-whatsapp').href = wa;
@@ -1260,7 +1260,7 @@ function renderProducts() {
     return;
   }
   const s = getSettings();
-  const wa = s.whatsapp ? 'https://wa.me/' + s.whatsapp : 'https://wa.me/55';
+  const wa = s.discord ? 'https://discord.gg/MdB9qN4u3s' + s.discord : 'https://discord.gg/MdB9qN4u3s';
   products.forEach(p => {
     const isBase64 = p.img && (p.img === DEFAULT_IMG1 || p.img === DEFAULT_IMG2 || p.img === DEFAULT_IMG3);
     const imgSrc = isBase64 ? 'data:image/jpeg;base64,' + p.img : (p.img || '');
@@ -1290,7 +1290,7 @@ function renderProducts() {
 // ── MODAL ──
 function openModal(p) {
   const s = getSettings();
-  const wa = s.whatsapp ? 'https://wa.me/' + s.whatsapp : 'https://wa.me/55';
+  const wa = s.discord ? 'https://discord.gg/MdB9qN4u3s' + s.discord : 'https://discord.gg/MdB9qN4u3s';
   const isBase64 = p.img && (p.img === DEFAULT_IMG1 || p.img === DEFAULT_IMG2 || p.img === DEFAULT_IMG3);
   const imgSrc = isBase64 ? 'data:image/jpeg;base64,' + p.img : (p.img || '');
   document.getElementById('modal-img').src = imgSrc;
@@ -1413,10 +1413,10 @@ function saveSettings() {
   if (pw) s.password = pw;
   saveSettingsData(s);
   // update UI
-  const waLink = wa ? 'https://wa.me/' + wa : 'https://wa.me/55';
-  document.getElementById('nav-whatsapp').href = waLink;
-  document.getElementById('hero-whatsapp').href = waLink;
-  document.getElementById('community-whatsapp').href = waLink;
+  const waLink = wa ? 'https://discord.gg/MdB9qN4u3s' + wa : 'https://discord.gg/MdB9qN4u3s';
+  document.getElementById('nav-discord').href = waLink;
+  document.getElementById('hero-discord').href = waLink;
+  document.getElementById('community-discord').href = waLink;
   if (sl) document.getElementById('hero-slogan').textContent = sl;
   showToast('Configurações salvas!');
 }
@@ -1459,7 +1459,7 @@ function renderAdminRegistros() {
     div.innerHTML = `
       <div class="reg-info">
         <strong>${r.nome}</strong>
-        <span>${r.whatsapp} · ${r.email || 'sem email'} · ${r.jogo || '—'} · ${r.interesse || '—'} · ${r.data}</span>
+        <span>${r.discord} · ${r.email || 'sem email'} · ${r.jogo || '—'} · ${r.interesse || '—'} · ${r.data}</span>
       </div>
       <button class="btn-danger" onclick="removeRegistro(${r.id})">Remover</button>`;
     list.appendChild(div);
